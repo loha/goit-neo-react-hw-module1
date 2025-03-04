@@ -1,19 +1,17 @@
+// src/components/FriendListItem/FriendListItem.jsx
+import React from "react";
 import styles from "./FriendListItem.module.css";
 
-const FriendListItem = ({ avatar, name, isOnline }) => {
+function FriendListItem({ avatar, name, isOnline }) {
   return (
-    <li className={styles.item}>
-      <img src={avatar} alt="Avatar" width="48" />
-      <p>{name}</p>
-      <p
-        className={
-          isOnline ? styles.status__isOnline : styles.status__isOffline
-        }
-      >
+    <div className={styles.item}>
+      <img className={styles.avatar} src={avatar} alt="Avatar" width="48" />
+      <p className={styles.name}>{name}</p>
+      <p className={isOnline ? styles.online : styles.offline}>
         {isOnline ? "Online" : "Offline"}
       </p>
-    </li>
+    </div>
   );
-};
+}
 
 export default FriendListItem;
